@@ -35,6 +35,9 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "no-inferrable-types": false,
+    "no-null-undefined-union": true
+
   }
 }
