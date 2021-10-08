@@ -567,7 +567,7 @@ export class DomHandler {
       };
   }
 
-  public static isInteger(value): boolean {
+  public static isInteger(value: any): boolean {
       if (Number.isInteger) {
           return Number.isInteger(value);
       }

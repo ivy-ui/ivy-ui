@@ -1,8 +1,8 @@
 import {NgModule,Directive,Component,ElementRef,EventEmitter,AfterViewInit,Output,OnDestroy,Input,ChangeDetectionStrategy, ViewEncapsulation, ContentChildren, AfterContentInit, TemplateRef, QueryList} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RippleModule} from 'primeng/ripple';
-import {PrimeTemplate} from 'primeng/api';
+import { RippleModule } from 'ivy/ripple';
 import { DomHandler } from 'ivy/dom';
+import { IvyTemplate } from 'ivy/api';
 
 @Directive({
     selector: '[pButton]'
@@ -189,13 +189,13 @@ export class Button implements AfterContentInit {
 
     @Input() iconPos: string = 'left';
 
-    @Input() icon: string;
+    @Input() icon: string = '';
 
-    @Input() badge: string;
+    @Input() badge: string = '';
 
-    @Input() label: string;
+    @Input() label: string = '';
 
-    @Input() disabled: boolean;
+    @Input() disabled: boolean = true;
 
     @Input() loading: boolean = false;
 
@@ -203,13 +203,13 @@ export class Button implements AfterContentInit {
 
     @Input() style: any;
 
-    @Input() styleClass: string;
+    @Input() styleClass: string = '';
 
-    @Input() badgeClass: string;
+    @Input() badgeClass: string = ''
 
-    contentTemplate: TemplateRef<any>;
+    contentTemplate: TemplateRef<any> | undefined
 
-    @ContentChildren(PrimeTemplate) templates: QueryList<any>;
+    @ContentChildren(PrimeTemplate) templates: QueryList<any> | undefined;
 
     @Output() onClick: EventEmitter<any> = new EventEmitter();
 
@@ -240,7 +240,7 @@ export class Button implements AfterContentInit {
 }
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [CommonModule, RippleModule],
     exports: [ButtonDirective,Button],
     declarations: [ButtonDirective,Button]
 })

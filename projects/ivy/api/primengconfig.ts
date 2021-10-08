@@ -4,7 +4,7 @@ import { FilterMatchMode } from './filtermatchmode';
 import { Translation } from './translation';
 
 @Injectable({providedIn: 'root'})
-export class PrimeNGConfig {
+export class IvyConfig {
 
     ripple: boolean = false;
 
@@ -91,7 +91,7 @@ export class PrimeNGConfig {
 
     translationObserver = this.translationSource.asObservable();
 
-    getTranslation(key: string) {
+    getTranslation(key: any) {
         return this.translation[key];
     }
 

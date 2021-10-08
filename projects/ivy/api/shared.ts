@@ -3,30 +3,30 @@ import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'p-header',
+    selector: 'ivy-header',
     template: '<ng-content></ng-content>'
 })
 export class Header {}
 
 @Component({
-    selector: 'p-footer',
+    selector: 'ivy-footer',
     template: '<ng-content></ng-content>'
 })
 export class Footer {}
 
 @Directive({
-    selector: '[pTemplate]',
+    selector: '[ivyTemplate]',
     host: {
     }
 })
-export class PrimeTemplate {
-    
-    @Input() type: string;
-    
-    @Input('pTemplate') name: string;
-    
+export class IvyTemplate {
+
+    @Input() type: string = '';
+
+    @Input('ivyTemplate') name: string = '';
+
     constructor(public template: TemplateRef<any>) {}
-    
+
     getType(): string {
         return this.name;
     }
@@ -34,7 +34,7 @@ export class PrimeTemplate {
 
 @NgModule({
     imports: [CommonModule],
-    exports: [Header,Footer,PrimeTemplate],
-    declarations: [Header,Footer,PrimeTemplate]
+    exports: [Header, Footer, IvyTemplate],
+    declarations: [Header, Footer, IvyTemplate]
 })
 export class SharedModule { }
