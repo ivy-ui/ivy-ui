@@ -1,0 +1,22 @@
+<button
+class="ivy-button"
+[ngClass]="{
+  'ivy-button-small': size === 'small',
+  'ivy-button-medium': size === 'medium',
+  'ivy-button-large': size === 'large',
+  'ivy-button-outline': outline
+}"
+[disabled]="disabled"
+[attr.type]="type"
+[ngStyle]="{
+  'background-color': outline ? 'transparent' : 'var(--ivy-' + color + ')',
+  'color': outline ? 'var(--ivy-' + color + ')': '',
+  'border-radius': rounded ? '100px' : '5px',
+  'text-transform' : textUppercase ? 'uppercase' : 'initial',
+  'width': full ? '100%' : 'auto'
+}">
+<ng-container *ngIf="!loading">
+  {{ label }}
+</ng-container>
+  <div class="ivy-spinner-ring" *ngIf="loading"><div></div><div></div><div></div><div></div></div>
+</button>

@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'docs';
+  loading = false;
+
+  constructor(){
+    this.test()
+  }
+
+  test(){
+    setTimeout(() => {
+      this.loading = !this.loading;
+      //this.test();
+    }, 3000);
+  }
 }
